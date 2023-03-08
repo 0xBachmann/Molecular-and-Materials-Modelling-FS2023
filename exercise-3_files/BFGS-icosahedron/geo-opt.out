@@ -1,0 +1,2161 @@
+ DBCSR| CPU Multiplication driver                                           XSMM
+ DBCSR| Multrec recursion limit                                              512
+ DBCSR| Multiplication stack size                                           1000
+ DBCSR| Maximum elements for images                                    UNLIMITED
+ DBCSR| Multiplicative factor virtual images                                   1
+ DBCSR| Use multiplication densification                                       T
+ DBCSR| Multiplication size stacks                                             3
+ DBCSR| Use memory pool for CPU allocation                                     F
+ DBCSR| Number of 3D layers                                               SINGLE
+ DBCSR| Use MPI memory allocation                                              F
+ DBCSR| Use RMA algorithm                                                      F
+ DBCSR| Use Communication thread                                               T
+ DBCSR| Communication thread load                                             87
+ DBCSR| MPI: My node id                                                        0
+ DBCSR| MPI: Number of nodes                                                   9
+ DBCSR| OMP: Current number of threads                                         1
+ DBCSR| OMP: Max number of threads                                             1
+ DBCSR| Split modifier for TAS multiplication algorithm                  1.0E+00
+
+
+  **** **** ******  **  PROGRAM STARTED AT               2023-03-08 09:41:53.709
+ ***** ** ***  *** **   PROGRAM STARTED ON                            eu-a2p-478
+ **    ****   ******    PROGRAM STARTED BY                             jbachmann
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 75890
+  **** **  *******  **  PROGRAM STARTED IN /cluster/home/jbachmann/Molecular-and
+                                           -Materials-Modelling-FS2023/exercise-
+                                           3_files/BFGS-icosahedron
+
+ CP2K| version string:                                          CP2K version 8.2
+ CP2K| source code revision number:                                  git:310b7ab
+ CP2K| cp2kflags: omp fftw3 libxc parallel mpi3 scalapack xsmm plumed2 spglib li
+ CP2K|            bvori libbqb
+ CP2K| is freely available from                            https://www.cp2k.org/
+ CP2K| Program compiled at                         Tue Aug  3 16:40:32 CEST 2021
+ CP2K| Program compiled on                                           eu-g1-012-3
+ CP2K| Program compiled for                     Linux-x86-64-gfortran-opt-nolint
+ CP2K| Data directory path      /cluster/apps/nss/gcc-6.3.0/cp2k/8.2/x86_64/data
+ CP2K| Input file name                                               geo-opt.inp
+
+ GLOBAL| Force Environment number                                              1
+ GLOBAL| Basis set file name                                           BASIS_SET
+ GLOBAL| Potential file name                                           POTENTIAL
+ GLOBAL| MM Potential file name                                     MM_POTENTIAL
+ GLOBAL| Coordinate file name                                    icosahedron.xyz
+ GLOBAL| Method name                                                        CP2K
+ GLOBAL| Project name                                               optimization
+ GLOBAL| Run type                                                        GEO_OPT
+ GLOBAL| FFT library                                                       FFTW3
+ GLOBAL| Diagonalization library                                       ScaLAPACK
+ GLOBAL| Orthonormality check for eigenvectors                          DISABLED
+ GLOBAL| Matrix multiplication library                                    SCALAP
+ GLOBAL| All-to-all communication in single precision                          F
+ GLOBAL| FFTs using library dependent lengths                                  F
+ GLOBAL| Grid backend                                                       AUTO
+ GLOBAL| Global print level                                                  LOW
+ GLOBAL| MPI I/O enabled                                                       T
+ GLOBAL| Total number of message passing processes                             9
+ GLOBAL| Number of threads for this process                                    1
+ GLOBAL| This output is from process                                           0
+ GLOBAL| CPU model name                          AMD EPYC 7763 64-Core Processor
+ GLOBAL| CPUID                                                              1002
+
+ MEMORY| system memory details [Kb]
+ MEMORY|                        rank 0           min           max       average
+ MEMORY| MemTotal            261490844     261490844     261490844     261490844
+ MEMORY| MemFree             203845912     203845912     203845912     203845912
+ MEMORY| Buffers                  1052          1052          1052          1052
+ MEMORY| Cached               23409940      23409940      23409940      23409940
+ MEMORY| Slab                  1963524       1963524       1963524       1963524
+ MEMORY| SReclaimable           943424        943424        943424        943424
+ MEMORY| MemLikelyFree       228200328     228200328     228200328     228200328
+
+
+
+                      ************* ******** ***********   
+                     ************* **********************  
+                     ****     **** ****      ***********   
+                     ******** ****  *******     ****       
+                     *******  ****   *******   ****        
+                     ****     ****       ****  ****        
+                     ****     **** **********  ****        
+                      ****     **** ********    ****       
+                     FRONTIERS IN SIMULATION TECHNOLOGY    
+                                                           
+                        C.J. Mundy, S. Balasubramanian,    
+                     Ken Bagchi, J. Hutter, Ari Seitsonen  
+                      IFW Kuo, T. Laino, J. VandeVondele   
+                                 Version 1.0               
+
+                                                           
+
+ EWALD|                                                                 not used
+
+ GENERATE|  Preliminary Number of Bonds generated:                             0
+ GENERATE|  Achieved consistency in connectivity generation.
+ CHARGE_INFO| Total Charge of the Classical System:                     0.000000
+
+ FORCEFIELD| WARNING: A non Critical ForceField parameter is missing! CP2K GOES!
+ FORCEFIELD| Non critical parameters are:Urey-Bradley,Torsions,Impropers, Opbends and 1-4
+ FORCEFIELD| All missing parameters will not contribute to the potential energy!
+ FORCEFIELD| Activate the print key FF_INFO to have a list of missing parameters
+
+
+ SPLINE_INFO| Generating 1 splines for NONBONDED14 interactions 
+              Due to 1 different atomic kinds
+  ...1
+ SPLINE_INFO| Number of unique splines computed:            1
+ SPLINE_INFO| Done
+
+ SPLINE_INFO| Generating 1 splines for NONBONDED interactions 
+              Due to 1 different atomic kinds
+  ...1
+ SPLINE_INFO| Number of unique splines computed:            1
+ SPLINE_INFO| Done
+
+ BFGS| Use rational function optimization for step estimation:                NO
+ BFGS| Use model Hessian for initial guess:                                  YES
+ BFGS| Restart Hessian:                                                       NO
+ BFGS| Trust radius:                                                       0.472
+
+ *******************************************************************************
+ ***                     STARTING GEOMETRY OPTIMIZATION                      ***
+ ***                                   BFGS                                  ***
+ *******************************************************************************
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.051336527795594
+
+ --------  Informations at step =     0 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0513365278
+  Used time                  =                0.008
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      1
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.051416838089800
+
+ --------  Informations at step =     1 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0514168381
+  Real energy change         =        -0.0000803103
+  Predicted change in energy =        -0.0000402220
+  Scaling factor             =         0.0000000000
+  Step size                  =         0.0055010481
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.004
+
+  Convergence check :
+  Max. step size             =         0.0055010481
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0026564049
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0005502713
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0002647675
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      2
+ --------------------------
+
+  Step is scaled; Scaling factor =  0.27898
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.056990904395474
+
+ --------  Informations at step =     2 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0569909044
+  Real energy change         =        -0.0055740663
+  Predicted change in energy =        -0.0059045743
+  Scaling factor             =         0.2789755595
+  Step size                  =         0.4724315332
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.4724315332
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.2273327498
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0007003041
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0002469477
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      3
+ --------------------------
+
+  Step is scaled; Scaling factor =  0.85171
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.056076459842474
+
+ --------  Informations at step =     3 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0560764598
+  Real energy change         =         0.0009144446
+  Predicted change in energy =        -0.0021214967
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.4724315332
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                   NO
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.4724315332
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.2252899860
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0048439173
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0009831843
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      4
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.058021419425011
+
+ --------  Informations at step =     4 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0580214194
+  Real energy change         =        -0.0019449596
+  Predicted change in energy =        -0.0029411092
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.3077192346
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.3077192346
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.1490875171
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0012578449
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0003103382
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      5
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.058283009189572
+
+ --------  Informations at step =     5 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0582830092
+  Real energy change         =        -0.0002615898
+  Predicted change in energy =        -0.0001515021
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0591654147
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0591654147
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0264158868
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0014205125
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0003387155
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      6
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.058815114906305
+
+ --------  Informations at step =     6 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0588151149
+  Real energy change         =        -0.0005321057
+  Predicted change in energy =        -0.0004457763
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.1794706971
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.1794706971
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0774008640
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0018233897
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0004084829
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      7
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.059182666076419
+
+ --------  Informations at step =     7 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0591826661
+  Real energy change         =        -0.0003675512
+  Predicted change in energy =        -0.0002050291
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0543264391
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0543264391
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0219877497
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0016209452
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0003672955
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      8
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.060329967134871
+
+ --------  Informations at step =     8 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0603299671
+  Real energy change         =        -0.0011473011
+  Predicted change in energy =        -0.0009506357
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.1936483438
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.1936483438
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0641737571
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0005551394
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0002078973
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:      9
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.060561976747285
+
+ --------  Informations at step =     9 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0605619767
+  Real energy change         =        -0.0002320096
+  Predicted change in energy =        -0.0001714361
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0933836662
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0933836662
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0218760144
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0006728721
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001743510
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     10
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.060641639499571
+
+ --------  Informations at step =    10 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0606416395
+  Real energy change         =        -0.0000796628
+  Predicted change in energy =        -0.0000574870
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0589627248
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0589627248
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0132462169
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0008208733
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001709826
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     11
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.060706628859750
+
+ --------  Informations at step =    11 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0607066289
+  Real energy change         =        -0.0000649894
+  Predicted change in energy =        -0.0000400729
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0389916440
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0389916440
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0095675252
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0008682660
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001688898
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     12
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.060856343501710
+
+ --------  Informations at step =    12 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0608563435
+  Real energy change         =        -0.0001497146
+  Predicted change in energy =        -0.0000982109
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0613984210
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0613984210
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0191240030
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0008609543
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001642869
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     13
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061078023722731
+
+ --------  Informations at step =    13 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0610780237
+  Real energy change         =        -0.0002216802
+  Predicted change in energy =        -0.0001477578
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0743653679
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0743653679
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0272948990
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0007069941
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001556124
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     14
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061328446195425
+
+ --------  Informations at step =    14 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0613284462
+  Real energy change         =        -0.0002504225
+  Predicted change in energy =        -0.0001828701
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.1314971687
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.1314971687
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0336713865
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0003590948
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001334047
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     15
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061435748130731
+
+ --------  Informations at step =    15 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0614357481
+  Real energy change         =        -0.0001073019
+  Predicted change in energy =        -0.0000912839
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.1028075284
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.1028075284
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0202051380
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0003146134
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001154939
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     16
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061459162955555
+
+ --------  Informations at step =    16 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0614591630
+  Real energy change         =        -0.0000234148
+  Predicted change in energy =        -0.0000154760
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0236712182
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0236712182
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0057943431
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0002974719
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0001078780
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     17
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061491326350426
+
+ --------  Informations at step =    17 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0614913264
+  Real energy change         =        -0.0000321634
+  Predicted change in energy =        -0.0000209518
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0226681760
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0226681760
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0070988741
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0003358050
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000986225
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     18
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061547121776295
+
+ --------  Informations at step =    18 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0615471218
+  Real energy change         =        -0.0000557954
+  Predicted change in energy =        -0.0000352382
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0224508485
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0224508485
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0097943773
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0003317147
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000893081
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     19
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061651317867422
+
+ --------  Informations at step =    19 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0616513179
+  Real energy change         =        -0.0001041961
+  Predicted change in energy =        -0.0000703070
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0640791449
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0640791449
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0197579671
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0002330794
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000839061
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     20
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061758826085493
+
+ --------  Informations at step =    20 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0617588261
+  Real energy change         =        -0.0001075082
+  Predicted change in energy =        -0.0000772291
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0910773639
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0910773639
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0264375738
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0002653846
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000838369
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     21
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061815503321412
+
+ --------  Informations at step =    21 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0618155033
+  Real energy change         =        -0.0000566772
+  Predicted change in energy =        -0.0000444806
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0612083030
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0612083030
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0200239465
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0002512472
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000787902
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     22
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061831027569807
+
+ --------  Informations at step =    22 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0618310276
+  Real energy change         =        -0.0000155242
+  Predicted change in energy =        -0.0000114376
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0195805569
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0195805569
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0071304732
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0002298977
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000733542
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     23
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061841854700052
+
+ --------  Informations at step =    23 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0618418547
+  Real energy change         =        -0.0000108271
+  Predicted change in energy =        -0.0000067551
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0110066187
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0110066187
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0038270236
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0002353167
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000689688
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     24
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061865329514601
+
+ --------  Informations at step =    24 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0618653295
+  Real energy change         =        -0.0000234748
+  Predicted change in energy =        -0.0000152003
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0191863164
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0191863164
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0067805987
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0002154593
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000620026
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     25
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061902618837736
+
+ --------  Informations at step =    25 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0619026188
+  Real energy change         =        -0.0000372893
+  Predicted change in energy =        -0.0000248322
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0311209397
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0311209397
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0112363221
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001620512
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000550102
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     26
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061943149793121
+
+ --------  Informations at step =    26 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0619431498
+  Real energy change         =        -0.0000405310
+  Predicted change in energy =        -0.0000292194
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0427790074
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0427790074
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0153034774
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001670253
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000489414
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     27
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061963774859837
+
+ --------  Informations at step =    27 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0619637749
+  Real energy change         =        -0.0000206251
+  Predicted change in energy =        -0.0000160747
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0259545520
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0259545520
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0108935937
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001449338
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000435645
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     28
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061969360807429
+
+ --------  Informations at step =    28 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0619693608
+  Real energy change         =        -0.0000055859
+  Predicted change in energy =        -0.0000042421
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0126736757
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0126736757
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0039277689
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001046077
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000404013
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     29
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061972406157496
+
+ --------  Informations at step =    29 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0619724062
+  Real energy change         =        -0.0000030454
+  Predicted change in energy =        -0.0000019115
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0066467731
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0066467731
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0018879632
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001124548
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000383702
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     30
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061978814355797
+
+ --------  Informations at step =    30 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0619788144
+  Real energy change         =        -0.0000064082
+  Predicted change in energy =        -0.0000041229
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0104293841
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0104293841
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0031685365
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001079010
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000355584
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     31
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.061989820543566
+
+ --------  Informations at step =    31 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0619898205
+  Real energy change         =        -0.0000110062
+  Predicted change in energy =        -0.0000072372
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0132824297
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0132824297
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0054775448
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000984041
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000335348
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     32
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062003592632169
+
+ --------  Informations at step =    32 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620035926
+  Real energy change         =        -0.0000137721
+  Predicted change in energy =        -0.0000097364
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0205125660
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0205125660
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0087094592
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001134134
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000329773
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     33
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062012294756943
+
+ --------  Informations at step =    33 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620122948
+  Real energy change         =        -0.0000087021
+  Predicted change in energy =        -0.0000066024
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0187705023
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0187705023
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0078585701
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000932637
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000314210
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. for gradients        =                   NO
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     34
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062015329061074
+
+ --------  Informations at step =    34 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620153291
+  Real energy change         =        -0.0000030343
+  Predicted change in energy =        -0.0000023024
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0088147374
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0088147374
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0036779220
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001123724
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000288218
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     35
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062016864097995
+
+ --------  Informations at step =    35 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620168641
+  Real energy change         =        -0.0000015350
+  Predicted change in energy =        -0.0000009890
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0046908236
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0046908236
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0015630163
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001140817
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000265431
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     36
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062019513721957
+
+ --------  Informations at step =    36 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620195137
+  Real energy change         =        -0.0000026496
+  Predicted change in energy =        -0.0000017110
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0058819897
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0058819897
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0021021218
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0001019817
+  Conv. limit for gradients  =         0.0001000000
+  Conv. for gradients        =                   NO
+  RMS gradient               =         0.0000232079
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     37
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062023752254051
+
+ --------  Informations at step =    37 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620237523
+  Real energy change         =        -0.0000042385
+  Predicted change in energy =        -0.0000028431
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0090795679
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0090795679
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0034189034
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000660879
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000195725
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     38
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062028123671339
+
+ --------  Informations at step =    38 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620281237
+  Real energy change         =        -0.0000043714
+  Predicted change in energy =        -0.0000031678
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0136207879
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0136207879
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0045312872
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000665341
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000169304
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     39
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062030245601244
+
+ --------  Informations at step =    39 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620302456
+  Real energy change         =        -0.0000021219
+  Predicted change in energy =        -0.0000016654
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0095441498
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0095441498
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0032800845
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000586467
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000147236
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     40
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062030803276672
+
+ --------  Informations at step =    40 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620308033
+  Real energy change         =        -0.0000005577
+  Predicted change in energy =        -0.0000004191
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0038592472
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0038592472
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0012047857
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000446682
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000132791
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     41
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062031137779663
+
+ --------  Informations at step =    41 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620311378
+  Real energy change         =        -0.0000003345
+  Predicted change in energy =        -0.0000002091
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0019312538
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0019312538
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0005827659
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000397342
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000123656
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     42
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062031853084155
+
+ --------  Informations at step =    42 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620318531
+  Real energy change         =        -0.0000007153
+  Predicted change in energy =        -0.0000004634
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0034406146
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0034406146
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0010167593
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000356554
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000111813
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     43
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062032982378422
+
+ --------  Informations at step =    43 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620329824
+  Real energy change         =        -0.0000011293
+  Predicted change in energy =        -0.0000007538
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0055108167
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0055108167
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0017263848
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000357125
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000104208
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     44
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062034183672072
+
+ --------  Informations at step =    44 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620341837
+  Real energy change         =        -0.0000012013
+  Predicted change in energy =        -0.0000008679
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0086001725
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0086001725
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0024188404
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000541746
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000099150
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     45
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062034800487189
+
+ --------  Informations at step =    45 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620348005
+  Real energy change         =        -0.0000006168
+  Predicted change in energy =        -0.0000004746
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0060432472
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0060432472
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0017895969
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000492677
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000090392
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     46
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062035001332362
+
+ --------  Informations at step =    46 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620350013
+  Real energy change         =        -0.0000002008
+  Predicted change in energy =        -0.0000001477
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0017308646
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0017308646
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0007218118
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000371683
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000083314
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     47
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062035141224558
+
+ --------  Informations at step =    47 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620351412
+  Real energy change         =        -0.0000001399
+  Predicted change in energy =        -0.0000000879
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0016548828
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0016548828
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0003941571
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000336648
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000078444
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     48
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062035433827648
+
+ --------  Informations at step =    48 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620354338
+  Real energy change         =        -0.0000002926
+  Predicted change in energy =        -0.0000001888
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0030678070
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0030678070
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0007016516
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000344520
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000072973
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     49
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062035912239055
+
+ --------  Informations at step =    49 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620359122
+  Real energy change         =        -0.0000004784
+  Predicted change in energy =        -0.0000003182
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0043233282
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0043233282
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0012418623
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000274663
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000070390
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     50
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062036442635040
+
+ --------  Informations at step =    50 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620364426
+  Real energy change         =        -0.0000005304
+  Predicted change in energy =        -0.0000003807
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0048596440
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0048596440
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0017405463
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000368108
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000068184
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     51
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062036730842483
+
+ --------  Informations at step =    51 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620367308
+  Real energy change         =        -0.0000002882
+  Predicted change in energy =        -0.0000002210
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0041688989
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0041688989
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0012762157
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000340659
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000062969
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     52
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062036829374418
+
+ --------  Informations at step =    52 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620368294
+  Real energy change         =        -0.0000000985
+  Predicted change in energy =        -0.0000000720
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0017164077
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0017164077
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0004956416
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000248932
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000058928
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     53
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062036900332055
+
+ --------  Informations at step =    53 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620369003
+  Real energy change         =        -0.0000000710
+  Predicted change in energy =        -0.0000000447
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0014159294
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0014159294
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0002812845
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                  YES
+  Max. gradient              =         0.0000166691
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000056209
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     54
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062037046718482
+
+ --------  Informations at step =    54 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620370467
+  Real energy change         =        -0.0000001464
+  Predicted change in energy =        -0.0000000940
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0024249690
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0024249690
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0005081316
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000172275
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000053661
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     55
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062037297805455
+
+ --------  Informations at step =    55 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620372978
+  Real energy change         =        -0.0000002511
+  Predicted change in energy =        -0.0000001659
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0033588874
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0033588874
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0009609438
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000224997
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000053127
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     56
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062037598186480
+
+ --------  Informations at step =    56 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620375982
+  Real energy change         =        -0.0000003004
+  Predicted change in energy =        -0.0000002129
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0034993445
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.008
+
+  Convergence check :
+  Max. step size             =         0.0034993445
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0014451179
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000250399
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000051868
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     57
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062037781106607
+
+ --------  Informations at step =    57 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620377811
+  Real energy change         =        -0.0000001829
+  Predicted change in energy =        -0.0000001394
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0041085816
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0041085816
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0011655034
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000220976
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000047001
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     58
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062037843401593
+
+ --------  Informations at step =    58 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620378434
+  Real energy change         =        -0.0000000623
+  Predicted change in energy =        -0.0000000468
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0020323303
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0020323303
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                   NO
+  RMS step size              =         0.0004532682
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                   NO
+  Max. gradient              =         0.0000136635
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000043182
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ --------------------------
+ OPTIMIZATION STEP:     59
+ --------------------------
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062037878707363
+
+ --------  Informations at step =    59 ------------
+  Optimization Method        =                 BFGS
+  Total Energy               =        -0.0620378787
+  Real energy change         =        -0.0000000353
+  Predicted change in energy =        -0.0000000225
+  Scaling factor             =         0.8517126095
+  Step size                  =         0.0009459684
+  Trust radius               =         0.4724315332
+  Decrease in energy         =                  YES
+  Used time                  =                0.009
+
+  Convergence check :
+  Max. step size             =         0.0009459684
+  Conv. limit for step size  =         0.0010000000
+  Convergence in step size   =                  YES
+  RMS step size              =         0.0001979610
+  Conv. limit for RMS step   =         0.0003000000
+  Convergence in RMS step    =                  YES
+  Max. gradient              =         0.0000131999
+  Conv. limit for gradients  =         0.0001000000
+  Conv. in gradients         =                  YES
+  RMS gradient               =         0.0000040719
+  Conv. limit for RMS grad.  =         0.0000300000
+  Conv. in RMS gradients     =                  YES
+ ---------------------------------------------------
+
+ *******************************************************************************
+ ***                    GEOMETRY OPTIMIZATION COMPLETED                      ***
+ *******************************************************************************
+
+                    Reevaluating energy at the minimum
+
+ ENERGY| Total FORCE_EVAL ( FIST ) energy [a.u.]:             -0.062037878707363
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                                DBCSR STATISTICS                             -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ COUNTER                                    TOTAL       BLAS       SMM       ACC
+ flops inhomo. stacks                           0       0.0%      0.0%      0.0%
+ flops total                         0.000000E+00       0.0%      0.0%      0.0%
+ flops max/rank                      0.000000E+00       0.0%      0.0%      0.0%
+ matmuls inhomo. stacks                         0       0.0%      0.0%      0.0%
+ matmuls total                                  0       0.0%      0.0%      0.0%
+ number of processed stacks                     0       0.0%      0.0%      0.0%
+ average stack size                                     0.0       0.0       0.0
+ marketing flops                     0.000000E+00
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                      DBCSR MESSAGE PASSING PERFORMANCE                      -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ ROUTINE             CALLS      AVE VOLUME [Bytes]
+ MP_Bcast                1                     12.
+ MP_Allreduce           19                     21.
+ -------------------------------------------------------------------------------
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                                GRID STATISTICS                              -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ LP    KERNEL             BACKEND                              COUNT     PERCENT
+ -------------------------------------------------------------------------------
+
+ MEMORY| Estimated peak process memory [MiB]                                 167
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                         MESSAGE PASSING PERFORMANCE                         -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+
+ ROUTINE             CALLS      AVE VOLUME [Bytes]
+ MP_Bcast              126                  13611.
+ MP_Allreduce          988                    234.
+ MP_Sync               120
+ MP_comm_split          60
+ MP_Recv               177                  29184.
+ -------------------------------------------------------------------------------
+
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                           R E F E R E N C E S                               -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ 
+ CP2K version 8.2, the CP2K developers group (2021).
+ CP2K is freely available from https://www.cp2k.org/ .
+
+ Schuett, Ole; Messmer, Peter; Hutter, Juerg; VandeVondele, Joost. 
+ Electronic Structure Calculations on Graphics Processing Units, John
+ Wiley & Sons, Ltd, 173-190 (2016). 
+ GPU-Accelerated Sparse Matrix-Matrix Multiplication for
+ Linear Scaling Density Functional Theory.
+ https://doi.org/10.1002/9781118670712.ch8
+
+ Heinecke, A; Henry, G; Hutchinson, M; Pabst, H. 
+ Proceedings of Intl. Supercomputing Conference, 981-991 (2016). 
+ LIBXSMM: Accelerating Small Matrix Multiplications
+ by Runtime Code Generation.
+ https://doi.org/10.1109/SC.2016.83
+
+ Borstnik, U; VandeVondele, J; Weber, V; Hutter, J. 
+ PARALLEL COMPUTING, 40 (5-6), 47-58 (2014). 
+ Sparse matrix multiplication: The distributed block-compressed sparse
+ row library.
+ https://doi.org/10.1016/j.parco.2014.03.012
+
+ Hutter, J; Iannuzzi, M; Schiffmann, F; VandeVondele, J. 
+ WIREs Comput Mol Sci., 4 (1), 15-25 (2014). 
+ CP2K: atomistic simulations of condensed matter systems.
+ https://doi.org/10.1002/wcms.1159
+
+ Frigo, M; Johnson, SG. 
+ PROCEEDINGS OF THE IEEE, 93 (2), 216-231 (2005). 
+ The design and implementation of FFTW3.
+ https://doi.org/10.1109/JPROC.2004.840301
+
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                                T I M I N G                                  -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ SUBROUTINE                       CALLS  ASD         SELF TIME        TOTAL TIME
+                                MAXIMUM       AVERAGE  MAXIMUM  AVERAGE  MAXIMUM
+ CP2K                                 1  1.0    0.003    0.005    0.528    0.528
+ cp_geo_opt                           1  2.0    0.000    0.000    0.516    0.517
+ geoopt_bfgs                          1  3.0    0.004    0.008    0.516    0.517
+ cp_fm_syevd                         60  4.0    0.000    0.000    0.252    0.261
+ mp_sum_dm                          181  5.7    0.165    0.186    0.165    0.186
+ virial_evaluate                     59  4.0    0.000    0.000    0.164    0.185
+ cp_fm_redistribute_end              60  5.0    0.098    0.168    0.099    0.169
+ write_restart                       60  4.0    0.018    0.153    0.029    0.168
+ cp_fm_syevd_base                    60  5.0    0.067    0.153    0.067    0.153
+ write_bfgs_hessian                  59  4.0    0.005    0.041    0.029    0.096
+ cp_fm_redistribute_start            60  5.0    0.014    0.016    0.085    0.094
+ mp_sync                            120  6.0    0.068    0.077    0.068    0.077
+ cp_fm_write_unformatted             59  5.0    0.024    0.054    0.024    0.055
+ write_trajectory                   120  4.0    0.004    0.026    0.005    0.033
+ update_input                        60  5.0    0.000    0.000    0.012    0.014
+ cp_eval_at                          61  4.0    0.003    0.004    0.014    0.014
+ update_subsys                       60  6.0    0.001    0.001    0.011    0.014
+ section_coord_val_set               60  7.0    0.010    0.013    0.010    0.013
+ cp_gemm                             60  4.0    0.000    0.000    0.010    0.011
+ cp_gemm_fm_gemm                     60  5.0    0.000    0.000    0.010    0.011
+ cp_fm_gemm                          60  6.0    0.010    0.011    0.010    0.011
+ -------------------------------------------------------------------------------
+
+ The number of warnings for this run is : 0
+ 
+ -------------------------------------------------------------------------------
+  **** **** ******  **  PROGRAM ENDED AT                 2023-03-08 09:41:54.798
+ ***** ** ***  *** **   PROGRAM RAN ON                                eu-a2p-478
+ **    ****   ******    PROGRAM RAN BY                                 jbachmann
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 75890
+  **** **  *******  **  PROGRAM STOPPED IN /cluster/home/jbachmann/Molecular-and
+                                           -Materials-Modelling-FS2023/exercise-
+                                           3_files/BFGS-icosahedron
