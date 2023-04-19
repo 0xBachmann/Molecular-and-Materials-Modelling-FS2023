@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH -n 2
-#SBATCH --time=0:10:00
-#SBATCH --job-name="task_0"
+#SBATCH --time=0:30:00
+#SBATCH --job-name="SiC"
 #SBATCH --mem-per-cpu=1024
 #SBATCH --output=stdout.txt
 #SBATCH --error=stderr.txt
@@ -26,12 +26,12 @@ cat > pw.in << EOF
 /
 
 &SYSTEM
-  ibrav=.....,
+  ibrav=2
   a=4.36
-  nat=....,
-  ntyp=....,
-  ecutwfc=......,
-  ecutrho=.....,
+  nat=2
+  ntyp=2
+  ecutwfc=45
+  ecutrho=360 
   occupations='smearing'
   degauss=0.001
 /
@@ -47,12 +47,12 @@ cat > pw.in << EOF
 cell_dofree='ibrav'
 /
 ATOMIC_SPECIES
-  Si 28.0855 .........
-  C  12 ................
+  Si 28.0855 Si.pbe-n-rrkjus_psl.1.0.0.UPF
+  C  12 C.pbe-n-kjpaw_psl.1.0.0.UPF
 
 ATOMIC_POSITIONS {alat}
-  ....................
-  ....................
+  Si   0.0000000000d0   0.0000000000d0   0.0000000000d0
+  C    0.2500000000d0   0.2500000000d0   0.2500000000d0
 
 K_POINTS automatic
 ${k} ${k} ${k} 1 1 1

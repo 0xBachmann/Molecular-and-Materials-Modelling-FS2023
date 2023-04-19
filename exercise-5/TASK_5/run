@@ -24,7 +24,7 @@ cat >pw.in << EOF
     outdir='./'
  /
  &system
-    ibrav=1
+    ibrav=2
     celldm(1)=${alat}
     nat=8,
     ntyp=1,

@@ -1,0 +1,3 @@
+
+Lmod is automatically replacing "gcc/4.8.5" with "intel/2022.1.2".
+

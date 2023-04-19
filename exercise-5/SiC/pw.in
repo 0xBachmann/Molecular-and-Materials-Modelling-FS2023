@@ -1,0 +1,42 @@
+&CONTROL
+  calculation='vc-relax',
+  outdir='./out',
+  prefix='sic',
+  pseudo_dir='./pseudo',
+  verbosity='high',
+  tstress=.true.,
+  tprnfor=.true.,
+  forc_conv_thr=0.0001
+/
+
+&SYSTEM
+  ibrav=2
+  a=4.36
+  nat=2
+  ntyp=2
+  ecutwfc=45
+  ecutrho=360 
+  occupations='smearing'
+  degauss=0.001
+/
+&ELECTRONS
+  conv_thr =   1.0000000000d-08
+  electron_maxstep = 50
+  mixing_beta =   2.5000000000d-01
+  scf_must_converge = .false.
+/
+&IONS
+/
+&CELL
+cell_dofree='ibrav'
+/
+ATOMIC_SPECIES
+  Si 28.0855 Si.pbe-n-rrkjus_psl.1.0.0.UPF
+  C  12 C.pbe-n-kjpaw_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS {alat}
+  Si   0.0000000000d0   0.0000000000d0   0.0000000000d0
+  C    0.2500000000d0   0.2500000000d0   0.2500000000d0
+
+K_POINTS automatic
+6 6 6 1 1 1

@@ -1,0 +1,36 @@
+ &control
+    verbosity='high'
+    calculation='scf'
+    restart_mode='from_scratch'
+    prefix='SI'
+    pseudo_dir = './',
+    outdir='./'
+ /
+ &system
+    ibrav=1
+    celldm(1)=10.26121694631474912930
+    nat=8,
+    ntyp=1,
+    ecutwfc = 30,
+    occupations='smearing',
+    degauss=0.001
+ /
+ &electrons
+    conv_thr = 1.0e-8
+    mixing_beta = 0.5
+ /
+ &ions
+ /
+ATOMIC_SPECIES
+  Si  28.086  Si.pbe-mt_fhi.UPF
+ATOMIC_POSITIONS  crystal
+Si     0.000000    0.000000    0.000000
+Si     0.000000    0.500000    0.500000
+Si     0.500000    0.000000    0.500000
+Si     0.500000    0.500000    0.000000
+Si     0.750000    0.250000    0.750000
+Si     0.250000    0.250000    0.250000
+Si     0.250000    0.750000    0.750000
+Si     0.750000    0.750000    0.250000
+K_POINTS automatic
+3 3 3 0 0 0
