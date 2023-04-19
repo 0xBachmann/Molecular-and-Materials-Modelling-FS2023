@@ -2,6 +2,7 @@ mmm-venv/
 *.wfn*
 *.wfc*
 *.cube
+*outputifles
 .ipynb_checkpoints
 __pycache__
 .idea
