@@ -2,6 +2,7 @@ mmm-venv/
 *.wfn*
 *.wfc*
 *.cube
+*.restart*
 *outputifles
 .ipynb_checkpoints
 __pycache__

@@ -1,0 +1,16 @@
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                        The specified OLD file                       *
+ *  \___/   </scratch/e1000/dpassero/MMM_2023/jbachmann/benzene/benzene/full/b *
+ *    |       enzene_on_pt.inp.inp> cannot be opened. It does not exist. Data  *
+ *  O/|        directory path: /users/mmi/DEV/CP2K/trunk_new/eiger/cp2k/data   *
+ * /| |                                                                        *
+ * / \                                                   common/cp_files.F:395 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            1 read_input

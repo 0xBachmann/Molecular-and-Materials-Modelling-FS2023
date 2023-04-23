@@ -1,0 +1,76 @@
+#!/bin/bash -l
+#SBATCH --export=ALL
+#SBATCH --error=job_%j.err
+#SBATCH --output=job_%j.out
+#SBATCH --open-mode=append
+#SBATCH --exclusive
+#SBATCH --account=mr34
+#SBATCH --time=3:30:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-core=1
+#SBATCH --hint=nomultithread
+#SBATCH --distribution=block:block 
+#SBATCH --constraint=mc
+
+# More SBATCH options:
+# If you need 512GB memory nodes (otherwise only 256GB guaranteed):
+##SBATCH --mem=497G
+# To run on the debug queue (max 10 nodes, 30 min):
+##SBATCH--partition=debug
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+export MPICH_OFI_STARTUP_CONNECT=1
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+export OMP_PROC_BIND=close
+export OMP_PLACES=cores
+export OMP_STACKSIZE=100M
+
+export FI_CXI_RX_MATCH_MODE=software
+export FI_CXI_REQ_BUFFER_SIZE=16777216
+export FI_CXI_REQ_BUF_MIN_POSTED=8
+
+
+
+source "${MODULESHOME}/init/bash"
+
+ulimit -a unlimited
+
+module load cpeGNU/21.12 ; \
+       module load \
+      cray-fftw \
+      ELPA/2021.11.001 \
+      libxsmm/1.17 \
+      libxc/5.1.7 \
+      Libint-CP2K/2.6.0 \
+      SIRIUS/7.3.1 \
+      spglib/1.16.3 \
+      libvori/210412 \
+      PLUMED/2.7.3 \
+      ; \
+
+module list
+
+export   EXEDIR=/users/mmi/DEV/CP2K/trunk_new/eiger/cp2k/exe/Eiger-gfortran_May22
+export EXE=cp2k.psmp
+
+export JOBDIR=$SLURM_SUBMIT_DIR
+export WRKDIR=$SLURM_SUBMIT_DIR
+export INPDIR=$SLURM_SUBMIT_DIR
+
+cd ${WRKDIR}
+EXE2=${EXEDIR}/${EXE}
+echo ${EXE2}
+
+
+export inp=${INPDIR}/${root}.inp
+export out=${WRKDIR}/${root}.out
+
+
+
+srun --cpu-bind=verbose,cores ${EXE2}  -i ${inp} > ${out}
+
