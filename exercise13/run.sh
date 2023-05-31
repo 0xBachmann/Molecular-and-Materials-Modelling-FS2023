@@ -18,4 +18,4 @@ module load CP2K
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 export CRAY_CUDA_MPS=1
 ulimit -s unlimited
-srun -n 12 cp2k.popt -i md.inp -o md.out
+cp2k.popt -i md.inp -o md.out

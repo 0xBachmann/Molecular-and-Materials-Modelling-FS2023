@@ -1,0 +1,155 @@
+
+  **** **** ******  **  PROGRAM STARTED AT               2023-05-24 09:43:35.228
+ ***** ** ***  *** **   PROGRAM STARTED ON                           eu-g5-002-1
+ **    ****   ******    PROGRAM STARTED BY                             jbachmann
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 23357
+  **** **  *******  **  PROGRAM STARTED IN /cluster/home/jbachmann/Molecular-and
+                                           -Materials-Modelling-FS2023/exercise1
+                                           3/NEB
+
+ CP2K| version string:                                          CP2K version 8.2
+ CP2K| source code revision number:                                  git:310b7ab
+ CP2K| cp2kflags: omp fftw3 libxc parallel mpi3 scalapack xsmm plumed2 spglib li
+ CP2K|            bvori libbqb
+ CP2K| is freely available from                            https://www.cp2k.org/
+ CP2K| Program compiled at                         Tue Aug  3 16:40:32 CEST 2021
+ CP2K| Program compiled on                                           eu-g1-012-3
+ CP2K| Program compiled for                     Linux-x86-64-gfortran-opt-nolint
+ CP2K| Data directory path      /cluster/apps/nss/gcc-6.3.0/cp2k/8.2/x86_64/data
+ CP2K| Input file name                                             ch3cl-r-0.inp
+
+ GLOBAL| Force Environment number                                              1
+ GLOBAL| Basis set file name                                           BASIS_SET
+ GLOBAL| Potential file name                                           POTENTIAL
+ GLOBAL| MM Potential file name                                     MM_POTENTIAL
+ GLOBAL| Coordinate file name                                        final-a.xyz
+ GLOBAL| Method name                                                        CP2K
+ GLOBAL| Project name                                                  ch3cl-r-0
+ GLOBAL| Run type                                                           BAND
+ GLOBAL| FFT library                                                       FFTW3
+ GLOBAL| Diagonalization library                                       ScaLAPACK
+ GLOBAL| Orthonormality check for eigenvectors                          DISABLED
+ GLOBAL| Matrix multiplication library                                    SCALAP
+ GLOBAL| All-to-all communication in single precision                          F
+ GLOBAL| FFTs using library dependent lengths                                  F
+ GLOBAL| Grid backend                                                       AUTO
+ GLOBAL| Global print level                                                  LOW
+ GLOBAL| MPI I/O enabled                                                       T
+ GLOBAL| Total number of message passing processes                             1
+ GLOBAL| Number of threads for this process                                    1
+ GLOBAL| This output is from process                                           0
+ GLOBAL| CPU model name                          AMD EPYC 7742 64-Core Processor
+ GLOBAL| CPUID                                                              1002
+
+ MEMORY| system memory details [Kb]
+ MEMORY|                        rank 0           min           max       average
+ MEMORY| MemTotal            525874016     525874016     525874016     525874016
+ MEMORY| MemFree             352359276     352359276     352359276     352359276
+ MEMORY| Buffers                 59180         59180         59180         59180
+ MEMORY| Cached               25561296      25561296      25561296      25561296
+ MEMORY| Slab                  3178556       3178556       3178556       3178556
+ MEMORY| SReclaimable          1274444       1274444       1274444       1274444
+ MEMORY| MemLikelyFree       379254196     379254196     379254196     379254196
+
+
+ GENERATE|  Preliminary Number of Bonds generated:                             0
+ GENERATE|  Achieved consistency in connectivity generation.
+
+
+              #####   #####        # #     # ######  ######   #####  
+             #     # #     #      #  ##    # #     # #     # #     # 
+             #     # #           #   # #   # #     # #     # #     # 
+             #     #  #####     #    #  #  # #     # #     # #     # 
+             #   # #       #   #     #   # # #     # #     # #     # 
+             #    #  #     #  #      #    ## #     # #     # #     # 
+              #### #  #####  #       #     # ######  ######   #####  
+                                                                     
+                              T. Laino and J. Hutter                 
+                                                                     
+                                   2008 - 2015                       
+
+
+ SEMIEMPIRICAL|                      Coulomb Integral cutoff/taper was redefined
+ SEMIEMPIRICAL| Old value [a.u.]                                          22.677
+ SEMIEMPIRICAL| New value [a.u.]                                          18.897
+
+
+ SEMIEMPIRICAL|                             Coulomb Integral cutoff/taper values
+ SEMIEMPIRICAL| Cutoff [a.u.]                                             18.897
+ SEMIEMPIRICAL| Taper  [a.u.]                                             18.897
+ SEMIEMPIRICAL| Range  [a.u.]                                              0.000
+
+
+ SEMIEMPIRICAL|                     Exchange Integral cutoff/taper was redefined
+ SEMIEMPIRICAL| Default value [a.u.]                                      22.677
+ SEMIEMPIRICAL| New value [a.u.]                                           4.724
+
+
+ SEMIEMPIRICAL|                            Exchange Integral cutoff/taper values
+ SEMIEMPIRICAL| Cutoff [a.u.]                                              4.724
+ SEMIEMPIRICAL| Taper  [a.u.]                                              4.724
+ SEMIEMPIRICAL| Range  [a.u.]                                              0.000
+
+
+
+ TOTAL NUMBERS AND MAXIMUM NUMBERS
+
+  Total number of            - Atomic kinds:                                   3
+                             - Atoms:                                          6
+                             - Shell sets:                                    11
+                             - Shells:                                        11
+                             - Primitive Cartesian functions:                 66
+                             - Cartesian basis functions:                     27
+                             - Spherical basis functions:                     25
+
+  Maximum angular momentum of the orbital basis functions:                     2
+
+
+ SCF PARAMETERS         Density guess:                                    ATOMIC
+                        --------------------------------------------------------
+                        max_scf:                                              50
+                        max_scf_history:                                       0
+                        max_diis:                                              4
+                        --------------------------------------------------------
+                        eps_scf:                                        1.00E-05
+                        eps_scf_history:                                0.00E+00
+                        eps_diis:                                       1.00E-01
+                        eps_eigval:                                     1.00E-05
+                        --------------------------------------------------------
+                        level_shift [a.u.]:                                 0.00
+                        --------------------------------------------------------
+                        Mixing method:                           DIRECT_P_MIXING
+                        --------------------------------------------------------
+                        Outer loop SCF in use 
+                        No variables optimised in outer loop
+                        eps_scf                                         1.00E-07
+                        max_scf                                              500
+                        No outer loop optimization
+                        step_size                                       5.00E-01
+
+ *******************************************************************************
+ **                  MAPPING OF BAND REPLICA TO REPLICA ENV                   **
+ *******************************************************************************
+ ** Replica Env Nr.:      0    working on the following BAND replicas         **
+ **                                                                           **
+ ** Band Replica   Nr.:      1 Output available on file: ch3cl-BAND01.out     **
+ ** Band Replica   Nr.:      2 Output available on file: ch3cl-BAND02.out     **
+ ** Band Replica   Nr.:      3 Output available on file: ch3cl-BAND03.out     **
+ ** Band Replica   Nr.:      4 Output available on file: ch3cl-BAND04.out     **
+ ** Band Replica   Nr.:      5 Output available on file: ch3cl-BAND05.out     **
+ ** Band Replica   Nr.:      6 Output available on file: ch3cl-BAND06.out     **
+ ** Band Replica   Nr.:      7 Output available on file: ch3cl-BAND07.out     **
+ ** Band Replica   Nr.:      8 Output available on file: ch3cl-BAND08.out     **
+ ** Band Replica   Nr.:      9 Output available on file: ch3cl-BAND09.out     **
+ ** Band Replica   Nr.:     10 Output available on file: ch3cl-BAND10.out     **
+ **                                                                           **
+ *******************************************************************************
+
+
+  **** **** ******  **  PROGRAM ENDED AT                 2023-05-24 09:43:35.523
+ ***** ** ***  *** **   PROGRAM RAN ON                               eu-g5-002-1
+ **    ****   ******    PROGRAM RAN BY                                 jbachmann
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 23357
+  **** **  *******  **  PROGRAM STOPPED IN /cluster/home/jbachmann/Molecular-and
+                                           -Materials-Modelling-FS2023/exercise1
+                                           3/NEB

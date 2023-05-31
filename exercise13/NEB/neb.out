@@ -1,0 +1,1126 @@
+ DBCSR| CPU Multiplication driver                                           XSMM
+ DBCSR| Multrec recursion limit                                              512
+ DBCSR| Multiplication stack size                                           1000
+ DBCSR| Maximum elements for images                                    UNLIMITED
+ DBCSR| Multiplicative factor virtual images                                   1
+ DBCSR| Use multiplication densification                                       T
+ DBCSR| Multiplication size stacks                                             3
+ DBCSR| Use memory pool for CPU allocation                                     F
+ DBCSR| Number of 3D layers                                               SINGLE
+ DBCSR| Use MPI memory allocation                                              F
+ DBCSR| Use RMA algorithm                                                      F
+ DBCSR| Use Communication thread                                               T
+ DBCSR| Communication thread load                                             87
+ DBCSR| MPI: My node id                                                        0
+ DBCSR| MPI: Number of nodes                                                   1
+ DBCSR| OMP: Current number of threads                                         1
+ DBCSR| OMP: Max number of threads                                             1
+ DBCSR| Split modifier for TAS multiplication algorithm                  1.0E+00
+
+
+  **** **** ******  **  PROGRAM STARTED AT               2023-05-24 09:43:35.228
+ ***** ** ***  *** **   PROGRAM STARTED ON                           eu-g5-002-1
+ **    ****   ******    PROGRAM STARTED BY                             jbachmann
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 23357
+  **** **  *******  **  PROGRAM STARTED IN /cluster/home/jbachmann/Molecular-and
+                                           -Materials-Modelling-FS2023/exercise1
+                                           3/NEB
+
+ CP2K| version string:                                          CP2K version 8.2
+ CP2K| source code revision number:                                  git:310b7ab
+ CP2K| cp2kflags: omp fftw3 libxc parallel mpi3 scalapack xsmm plumed2 spglib li
+ CP2K|            bvori libbqb
+ CP2K| is freely available from                            https://www.cp2k.org/
+ CP2K| Program compiled at                         Tue Aug  3 16:40:32 CEST 2021
+ CP2K| Program compiled on                                           eu-g1-012-3
+ CP2K| Program compiled for                     Linux-x86-64-gfortran-opt-nolint
+ CP2K| Data directory path      /cluster/apps/nss/gcc-6.3.0/cp2k/8.2/x86_64/data
+ CP2K| Input file name                                                   neb.inp
+
+ GLOBAL| Force Environment number                                              1
+ GLOBAL| Basis set file name                                           BASIS_SET
+ GLOBAL| Potential file name                                           POTENTIAL
+ GLOBAL| MM Potential file name                                     MM_POTENTIAL
+ GLOBAL| Coordinate file name                                        final-a.xyz
+ GLOBAL| Method name                                                        CP2K
+ GLOBAL| Project name                                                      ch3cl
+ GLOBAL| Run type                                                           BAND
+ GLOBAL| FFT library                                                       FFTW3
+ GLOBAL| Diagonalization library                                       ScaLAPACK
+ GLOBAL| Orthonormality check for eigenvectors                          DISABLED
+ GLOBAL| Matrix multiplication library                                    SCALAP
+ GLOBAL| All-to-all communication in single precision                          F
+ GLOBAL| FFTs using library dependent lengths                                  F
+ GLOBAL| Grid backend                                                       AUTO
+ GLOBAL| Global print level                                                  LOW
+ GLOBAL| MPI I/O enabled                                                       T
+ GLOBAL| Total number of message passing processes                             1
+ GLOBAL| Number of threads for this process                                    1
+ GLOBAL| This output is from process                                           0
+ GLOBAL| CPU model name                          AMD EPYC 7742 64-Core Processor
+ GLOBAL| CPUID                                                              1002
+
+ MEMORY| system memory details [Kb]
+ MEMORY|                        rank 0           min           max       average
+ MEMORY| MemTotal            525874016     525874016     525874016     525874016
+ MEMORY| MemFree             352480976     352480976     352480976     352480976
+ MEMORY| Buffers                 59180         59180         59180         59180
+ MEMORY| Cached               25561296      25561296      25561296      25561296
+ MEMORY| Slab                  3178556       3178556       3178556       3178556
+ MEMORY| SReclaimable          1274444       1274444       1274444       1274444
+ MEMORY| MemLikelyFree       379375896     379375896     379375896     379375896
+
+
+ GENERATE|  Preliminary Number of Bonds generated:                             0
+ GENERATE|  Achieved consistency in connectivity generation.
+
+
+              #####   #####        # #     # ######  ######   #####  
+             #     # #     #      #  ##    # #     # #     # #     # 
+             #     # #           #   # #   # #     # #     # #     # 
+             #     #  #####     #    #  #  # #     # #     # #     # 
+             #   # #       #   #     #   # # #     # #     # #     # 
+             #    #  #     #  #      #    ## #     # #     # #     # 
+              #### #  #####  #       #     # ######  ######   #####  
+                                                                     
+                              T. Laino and J. Hutter                 
+                                                                     
+                                   2008 - 2015                       
+
+
+ SEMIEMPIRICAL|                      Coulomb Integral cutoff/taper was redefined
+ SEMIEMPIRICAL| Old value [a.u.]                                          22.677
+ SEMIEMPIRICAL| New value [a.u.]                                          18.897
+
+
+ SEMIEMPIRICAL|                             Coulomb Integral cutoff/taper values
+ SEMIEMPIRICAL| Cutoff [a.u.]                                             18.897
+ SEMIEMPIRICAL| Taper  [a.u.]                                             18.897
+ SEMIEMPIRICAL| Range  [a.u.]                                              0.000
+
+
+ SEMIEMPIRICAL|                     Exchange Integral cutoff/taper was redefined
+ SEMIEMPIRICAL| Default value [a.u.]                                      22.677
+ SEMIEMPIRICAL| New value [a.u.]                                           4.724
+
+
+ SEMIEMPIRICAL|                            Exchange Integral cutoff/taper values
+ SEMIEMPIRICAL| Cutoff [a.u.]                                              4.724
+ SEMIEMPIRICAL| Taper  [a.u.]                                              4.724
+ SEMIEMPIRICAL| Range  [a.u.]                                              0.000
+
+
+
+ TOTAL NUMBERS AND MAXIMUM NUMBERS
+
+  Total number of            - Atomic kinds:                                   3
+                             - Atoms:                                          6
+                             - Shell sets:                                    11
+                             - Shells:                                        11
+                             - Primitive Cartesian functions:                 66
+                             - Cartesian basis functions:                     27
+                             - Spherical basis functions:                     25
+
+  Maximum angular momentum of the orbital basis functions:                     2
+
+
+ SCF PARAMETERS         Density guess:                                    ATOMIC
+                        --------------------------------------------------------
+                        max_scf:                                              50
+                        max_scf_history:                                       0
+                        max_diis:                                              4
+                        --------------------------------------------------------
+                        eps_scf:                                        1.00E-05
+                        eps_scf_history:                                0.00E+00
+                        eps_diis:                                       1.00E-01
+                        eps_eigval:                                     1.00E-05
+                        --------------------------------------------------------
+                        level_shift [a.u.]:                                 0.00
+                        --------------------------------------------------------
+                        Mixing method:                           DIRECT_P_MIXING
+                        --------------------------------------------------------
+                        Outer loop SCF in use 
+                        No variables optimised in outer loop
+                        eps_scf                                         1.00E-07
+                        max_scf                                              500
+                        No outer loop optimization
+                        step_size                                       5.00E-01
+ NEB| Replica_env Setup. START
+ REPLICA| layout of the replica grid, number of groups                         1
+ REPLICA| layout of the replica grid, size of each group                       1
+ REPLICA| MPI process to grid (group,rank) correspondence:
+  (   0 :    0,   0)
+ NEB| Replica_env Setup. END
+
+ *******************************************************************************
+ *******************************************************************************
+ **                                                                           **
+ **  ########     ###    ##    ## ########    Nudged Elastic Band Method      **
+ **  ##     ##   ## ##   ###   ## ##     ##   String Method                   **
+ **  ##     ##  ##   ##  ####  ## ##     ##                                   **
+ **  ########  ##     ## ## ## ## ##     ##   Number of Images :           10 **
+ **  ##     ## ######### ##  #### ##     ##   Number of Replicas:           1 **
+ **  ##     ## ##     ## ##   ### ##     ##   Number of Procs/Rep:          1 **
+ **  ########  ##     ## ##    ## ########                                    **
+ **                                           T. Laino  2009 - 2015           **
+ *******************************************************************************
+ *******************************************************************************
+
+ NEB| Building initial set of coordinates. START
+ NEB| The number of replica in the input is different from the number
+ NEB| of replica requested for NEB. More Replica will be interpolated.
+ NEB| Therefore the possibly provided velocities will not be read.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 1 in Angstrom
+ NEB|          C        -4.254520748    0.975264637   -0.281724682
+ NEB|          H        -3.892541918    2.005420503   -0.211449156
+ NEB|          H        -3.876142866    0.378435057    0.553628323
+ NEB|          H        -3.959202916    0.529310404   -1.236395354
+ NEB|         Cl        -6.081039059    0.997469833   -0.195326311
+ NEB|         Cl        -1.415493210    0.940850467   -0.415340510
+ NEB|***************************************************************************
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 2 in Angstrom
+ NEB|          C        -3.797066876    1.013722122   -0.232830776
+ NEB|          H        -4.275237766    1.997788929   -0.250066970
+ NEB|          H        -4.227403504    0.392428873    0.558372313
+ NEB|          H        -3.898206693    0.521235564   -1.204735735
+ NEB|         Cl        -6.564705254    0.658164233   -0.774408426
+ NEB|         Cl        -2.016670648    1.242897830    0.115970269
+ NEB|***************************************************************************
+ NEB| Interpolating 8 missing Replica.
+ NEB| Interpolating Nr. 8 missing Replica between Replica Nr. 1 and 2.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 3 in Angstrom
+ NEB|          C        -3.824671696    0.969954275   -0.301989825
+ NEB|          H        -3.807993885    2.004352437   -0.215459575
+ NEB|          H        -3.791770578    0.377317248    0.549629880
+ NEB|          H        -3.874310901    0.528218877   -1.240368701
+ NEB|         Cl        -6.157468219    0.998421302   -0.191711376
+ NEB|         Cl        -1.491903460    0.941791210   -0.411749401
+ NEB|***************************************************************************
+ NEB| Interpolating Nr. 7 missing Replica between Replica Nr. 2 and 3.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 4 in Angstrom
+ NEB|          C        -3.609747170    0.967299094   -0.312122396
+ NEB|          H        -3.765719869    2.003818404   -0.217464784
+ NEB|          H        -3.749584434    0.376758343    0.547630659
+ NEB|          H        -3.831864893    0.527673114   -1.242355375
+ NEB|         Cl        -6.195682800    0.998897037   -0.189903909
+ NEB|         Cl        -1.530108585    0.942261581   -0.409953846
+ NEB|***************************************************************************
+ NEB| Interpolating Nr. 6 missing Replica between Replica Nr. 1 and 2.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 5 in Angstrom
+ NEB|          C        -4.039596222    0.972609456   -0.291857253
+ NEB|          H        -3.850267901    2.004886470   -0.213454365
+ NEB|          H        -3.833956722    0.377876152    0.551629102
+ NEB|          H        -3.916756909    0.528764641   -1.238382027
+ NEB|         Cl        -6.119253639    0.997945567   -0.193518844
+ NEB|         Cl        -1.453698335    0.941320839   -0.413544955
+ NEB|***************************************************************************
+ NEB| Interpolating Nr. 5 missing Replica between Replica Nr. 3 and 4.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 6 in Angstrom
+ NEB|          C        -3.717209433    0.968626684   -0.307056110
+ NEB|          H        -3.786856877    2.004085420   -0.216462179
+ NEB|          H        -3.770677506    0.377037795    0.548630269
+ NEB|          H        -3.853087897    0.527945996   -1.241362038
+ NEB|         Cl        -6.176575509    0.998659169   -0.190807643
+ NEB|         Cl        -1.511006023    0.942026396   -0.410851623
+ NEB|***************************************************************************
+ NEB| Interpolating Nr. 4 missing Replica between Replica Nr. 5 and 6.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 7 in Angstrom
+ NEB|          C        -3.502284907    0.965971503   -0.317188682
+ NEB|          H        -3.744582860    2.003551387   -0.218467389
+ NEB|          H        -3.728491362    0.376478891    0.546631048
+ NEB|          H        -3.810641890    0.527400232   -1.243348712
+ NEB|         Cl        -6.214790090    0.999134904   -0.189000175
+ NEB|         Cl        -1.549211148    0.942496767   -0.409056068
+ NEB|***************************************************************************
+ NEB| Interpolating Nr. 3 missing Replica between Replica Nr. 1 and 2.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 8 in Angstrom
+ NEB|          C        -4.147058485    0.973937046   -0.286790968
+ NEB|          H        -3.871404909    2.005153486   -0.212451761
+ NEB|          H        -3.855049794    0.378155604    0.552628713
+ NEB|          H        -3.937979912    0.529037523   -1.237388690
+ NEB|         Cl        -6.100146349    0.997707700   -0.194422577
+ NEB|         Cl        -1.434595773    0.941085653   -0.414442733
+ NEB|***************************************************************************
+ NEB| Interpolating Nr. 2 missing Replica between Replica Nr. 3 and 4.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 9 in Angstrom
+ NEB|          C        -3.932133959    0.971281865   -0.296923539
+ NEB|          H        -3.829130893    2.004619453   -0.214456970
+ NEB|          H        -3.812863650    0.377596700    0.550629491
+ NEB|          H        -3.895533905    0.528491759   -1.239375364
+ NEB|         Cl        -6.138360929    0.998183435   -0.192615110
+ NEB|         Cl        -1.472800898    0.941556024   -0.412647178
+ NEB|***************************************************************************
+ NEB| Interpolating Nr. 1 missing Replica between Replica Nr. 5 and 6.
+
+ NEB|***************************************************************************
+ NEB| Geometry for Replica Nr. 10 in Angstrom
+ NEB|          C        -3.770940565    0.969290479   -0.304522968
+ NEB|          H        -3.797425381    2.004218928   -0.215960877
+ NEB|          H        -3.781224042    0.377177522    0.549130075
+ NEB|          H        -3.863699399    0.528082437   -1.240865370
+ NEB|         Cl        -6.167021864    0.998540236   -0.191259510
+ NEB|         Cl        -1.501454742    0.941908803   -0.411300512
+ NEB|***************************************************************************
+ NEB| Building initial set of coordinates. END
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               0
+ RMSD DISTANCE DEFINITION      =                                               T
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.220804        0.220804        0.220804        0.220804
+                        0.110402        0.110402        0.220804        0.220804
+                        0.220804
+ ENERGIES [au] =      -24.815004      -24.811605      -24.804972      -24.799262
+                      -24.797064      -24.797628      -24.799264      -24.804974
+                      -24.811607      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.05544305698663
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               1
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.250982        0.229400        0.225684        0.202012
+                        0.138576        0.138361        0.200735        0.229403
+                        0.250978
+ ENERGIES [au] =      -24.815004      -24.813359      -24.808493      -24.803017
+                      -24.800661      -24.801261      -24.803471      -24.808496
+                      -24.813361      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.08146665089006
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               2
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.280169        0.250555        0.219083        0.185366
+                        0.159624        0.157140        0.186012        0.243687
+                        0.280152
+ ENERGIES [au] =      -24.815004      -24.814167      -24.809871      -24.804306
+                      -24.801760      -24.802343      -24.805208      -24.810029
+                      -24.814169      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.09108565490214
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               3
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.287108        0.268048        0.224883        0.189914
+                        0.167074        0.168769        0.200716        0.255234
+                        0.285798
+ ENERGIES [au] =      -24.815004      -24.814393      -24.810400      -24.804869
+                      -24.802197      -24.802743      -24.805813      -24.810784
+                      -24.814402      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.09481581982988
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               4
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.293383        0.274578        0.227522        0.191289
+                        0.173241        0.175438        0.208684        0.263985
+                        0.289140
+ ENERGIES [au] =      -24.815004      -24.814513      -24.810763      -24.805168
+                      -24.802339      -24.802856      -24.806138      -24.811248
+                      -24.814545      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.09676734700068
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               5
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.296247        0.273546        0.230390        0.194248
+                        0.176190        0.180347        0.213960        0.262058
+                        0.290866
+ ENERGIES [au] =      -24.815004      -24.814562      -24.810961      -24.805309
+                      -24.802392      -24.802896      -24.806282      -24.811509
+                      -24.814599      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.09776140234274
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               6
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.298554        0.274964        0.232323        0.197287
+                        0.179780        0.185294        0.217365        0.264807
+                        0.291924
+ ENERGIES [au] =      -24.815004      -24.814612      -24.811132      -24.805448
+                      -24.802419      -24.802913      -24.806423      -24.811696
+                      -24.814654      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.09862808615267
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                               7
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.299790        0.274975        0.233664        0.206022
+                        0.175065        0.188113        0.220015        0.265454
+                        0.292442
+ ENERGIES [au] =      -24.815004      -24.814642      -24.811241      -24.805537
+                      -24.802399      -24.802928      -24.806506      -24.811818
+                      -24.814686      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.09908046279571
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               8
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.300283        0.275134        0.234467        0.213423
+                        0.169708        0.189085        0.220863        0.265821
+                        0.292718
+ ENERGIES [au] =      -24.815004      -24.814655      -24.811289      -24.805572
+                      -24.802370      -24.802940      -24.806548      -24.811868
+                      -24.814699      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.09923697587371
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                               9
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.307528        0.277716        0.247961        0.291907
+                        0.116073        0.197062        0.231312        0.270457
+                        0.297870
+ ENERGIES [au] =      -24.815004      -24.814784      -24.811819      -24.805852
+                      -24.802219      -24.803070      -24.807016      -24.812419
+                      -24.814829      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10064080845515
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              10
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.307455        0.277893        0.256010        0.283729
+                        0.128284        0.191816        0.231892        0.269830
+                        0.297783
+ ENERGIES [au] =      -24.815004      -24.814806      -24.811891      -24.805754
+                      -24.802237      -24.803208      -24.807121      -24.812502
+                      -24.814847      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10114786915355
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              11
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.307527        0.279944        0.267340        0.272442
+                        0.147738        0.186461        0.231596        0.269251
+                        0.297702
+ ENERGIES [au] =      -24.815004      -24.814840      -24.811993      -24.805603
+                      -24.802222      -24.803409      -24.807348      -24.812658
+                      -24.814878      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10191834858611
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              12
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.307599        0.281828        0.269474        0.270468
+                        0.153609        0.187206        0.230818        0.269030
+                        0.297510
+ ENERGIES [au] =      -24.815004      -24.814856      -24.812023      -24.805595
+                      -24.802233      -24.803487      -24.807483      -24.812736
+                      -24.814892      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10232705029222
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              13
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.307936        0.285057        0.272525        0.268429
+                        0.162814        0.189503        0.229736        0.268459
+                        0.297101
+ ENERGIES [au] =      -24.815004      -24.814880      -24.812077      -24.805587
+                      -24.802225      -24.803598      -24.807724      -24.812877
+                      -24.814915      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10298618441590
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              14
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.308027        0.285567        0.272893        0.268377
+                        0.164226        0.190114        0.229651        0.268275
+                        0.296940
+ ENERGIES [au] =      -24.815004      -24.814885      -24.812090      -24.805595
+                      -24.802234      -24.803623      -24.807772      -24.812907
+                      -24.814919      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10314163326666
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              15
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.308775        0.288881        0.275358        0.268541
+                        0.172814        0.194134        0.229509        0.267251
+                        0.296056
+ ENERGIES [au] =      -24.815004      -24.814909      -24.812160      -24.805620
+                      -24.802222      -24.803738      -24.808059      -24.813084
+                      -24.814943      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10392656272234
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              16
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.309054        0.289641        0.276082        0.269051
+                        0.175150        0.195661        0.229723        0.266843
+                        0.295529
+ ENERGIES [au] =      -24.815004      -24.814916      -24.812191      -24.805641
+                      -24.802234      -24.803781      -24.808154      -24.813146
+                      -24.814950      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10422837992516
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              17
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.309683        0.291270        0.277595        0.270384
+                        0.179962        0.198823        0.230411        0.266109
+                        0.294382
+ ENERGIES [au] =      -24.815004      -24.814929      -24.812247      -24.805675
+                      -24.802232      -24.803857      -24.808342      -24.813270
+                      -24.814963      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10477437163721
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              18
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.309938        0.291816        0.278236        0.271072
+                        0.181931        0.200259        0.230643        0.265821
+                        0.293744
+ ENERGIES [au] =      -24.815004      -24.814935      -24.812278      -24.805695
+                      -24.802235      -24.803891      -24.808433      -24.813323
+                      -24.814969      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10503554920501
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              19
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.310331        0.292683        0.279162        0.272012
+                        0.184715        0.202174        0.231153        0.265428
+                        0.292941
+ ENERGIES [au] =      -24.815004      -24.814942      -24.812315      -24.805720
+                      -24.802235      -24.803938      -24.808550      -24.813395
+                      -24.814975      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10537112847783
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              20
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.310825        0.293833        0.280585        0.273554
+                        0.188589        0.204816        0.232338        0.264880
+                        0.291455
+ ENERGIES [au] =      -24.815004      -24.814951      -24.812369      -24.805754
+                      -24.802234      -24.804005      -24.808706      -24.813499
+                      -24.814984      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10583782139005
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              21
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.310905        0.294021        0.280835        0.273863
+                        0.189322        0.205347        0.232462        0.264776
+                        0.291113
+ ENERGIES [au] =      -24.815004      -24.814953      -24.812383      -24.805764
+                      -24.802235      -24.804019      -24.808745      -24.813519
+                      -24.814985      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10594472715894
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              22
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311466        0.295428        0.282712        0.275922
+                        0.194076        0.208740        0.234100        0.264183
+                        0.288965
+ ENERGIES [au] =      -24.815004      -24.814964      -24.812453      -24.805809
+                      -24.802234      -24.804103      -24.808939      -24.813644
+                      -24.814993      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10652026850693
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              23
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311583        0.295748        0.283203        0.276559
+                        0.195397        0.209822        0.234323        0.264004
+                        0.288233
+ ENERGIES [au] =      -24.815004      -24.814967      -24.812478      -24.805827
+                      -24.802236      -24.804128      -24.809010      -24.813678
+                      -24.814995      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10671119391557
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              24
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311928        0.296860        0.284816        0.278360
+                        0.199275        0.212592        0.235842        0.263500
+                        0.286086
+ ENERGIES [au] =      -24.815004      -24.814974      -24.812538      -24.805867
+                      -24.802235      -24.804199      -24.809169      -24.813776
+                      -24.814999      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10718196951956
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              25
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312005        0.297178        0.285302        0.278990
+                        0.200529        0.213588        0.236159        0.263275
+                        0.285288
+ ENERGIES [au] =      -24.815004      -24.814977      -24.812560      -24.805884
+                      -24.802236      -24.804223      -24.809233      -24.813808
+                      -24.815000      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10735541318422
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              26
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312026        0.297375        0.285620        0.279362
+                        0.201268        0.214147        0.236425        0.263143
+                        0.284753
+ ENERGIES [au] =      -24.815004      -24.814978      -24.812573      -24.805893
+                      -24.802236      -24.804237      -24.809265      -24.813826
+                      -24.815001      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10744899691491
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              27
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312205        0.298262        0.286995        0.280911
+                        0.204427        0.216486        0.237639        0.262690
+                        0.282669
+ ENERGIES [au] =      -24.815004      -24.814983      -24.812623      -24.805927
+                      -24.802236      -24.804296      -24.809398      -24.813901
+                      -24.815003      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10783288668247
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              28
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312222        0.298398        0.287211        0.281194
+                        0.204982        0.216910        0.237774        0.262570
+                        0.282263
+ ENERGIES [au] =      -24.815004      -24.814984      -24.812634      -24.805936
+                      -24.802236      -24.804307      -24.809427      -24.813915
+                      -24.815003      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10791078187262
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              29
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312337        0.299302        0.288662        0.282861
+                        0.208257        0.219396        0.238998        0.262018
+                        0.279871
+ ENERGIES [au] =      -24.815004      -24.814989      -24.812687      -24.805973
+                      -24.802236      -24.804369      -24.809565      -24.813989
+                      -24.815004      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10830628210184
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              30
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312344        0.299554        0.289100        0.283429
+                        0.209318        0.220231        0.239284        0.261756
+                        0.279023
+ ENERGIES [au] =      -24.815004      -24.814990      -24.812706      -24.805988
+                      -24.802236      -24.804390      -24.809617      -24.814014
+                      -24.815004      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10844716188029
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              31
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312356        0.300334        0.290424        0.284970
+                        0.212260        0.222445        0.240324        0.261140
+                        0.276621
+ ENERGIES [au] =      -24.815004      -24.814993      -24.812754      -24.806023
+                      -24.802236      -24.804446      -24.809741      -24.814076
+                      -24.815004      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10879738435330
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              32
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312333        0.300551        0.290839        0.285507
+                        0.213240        0.223196        0.240593        0.260857
+                        0.275760
+ ENERGIES [au] =      -24.815004      -24.814994      -24.812772      -24.806037
+                      -24.802236      -24.804466      -24.809786      -24.814097
+                      -24.815004      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10892393345117
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              33
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312292        0.300597        0.290947        0.285643
+                        0.213475        0.223368        0.240645        0.260745
+                        0.275481
+ ENERGIES [au] =      -24.815004      -24.814995      -24.812777      -24.806040
+                      -24.802236      -24.804471      -24.809796      -24.814102
+                      -24.815004      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10895242447330
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              34
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312220        0.301238        0.292083        0.286998
+                        0.215986        0.225255        0.241459        0.260096
+                        0.273213
+ ENERGIES [au] =      -24.815004      -24.814997      -24.812818      -24.806071
+                      -24.802236      -24.804520      -24.809902      -24.814151
+                      -24.815004      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10924778608910
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              35
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312196        0.301325        0.292258        0.287234
+                        0.216414        0.225572        0.241558        0.259949
+                        0.272802
+ ENERGIES [au] =      -24.815004      -24.814997      -24.812826      -24.806078
+                      -24.802236      -24.804529      -24.809922      -24.814160
+                      -24.815004      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10930378162629
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              36
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.312066        0.301896        0.293322        0.288527
+                        0.218756        0.227330        0.242262        0.259213
+                        0.270535
+ ENERGIES [au] =      -24.815004      -24.814999      -24.812865      -24.806108
+                      -24.802236      -24.804575      -24.810020      -24.814204
+                      -24.815003      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10957668632236
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              37
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311996        0.302067        0.293691        0.289006
+                        0.219602        0.227960        0.242463        0.258887
+                        0.269676
+ ENERGIES [au] =      -24.815004      -24.815000      -24.812880      -24.806120
+                      -24.802236      -24.804592      -24.810057      -24.814220
+                      -24.815003      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10968054255349
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              38
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311814        0.302535        0.294616        0.290154
+                        0.221639        0.229469        0.242998        0.258126
+                        0.267562
+ ENERGIES [au] =      -24.815004      -24.815001      -24.812914      -24.806146
+                      -24.802236      -24.804633      -24.810142      -24.814256
+                      -24.815003      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.10991453158422
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              39
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311725        0.302681        0.294954        0.290598
+                        0.222410        0.230031        0.243155        0.257790
+                        0.266731
+ ENERGIES [au] =      -24.815004      -24.815002      -24.812928      -24.806158
+                      -24.802236      -24.804649      -24.810175      -24.814270
+                      -24.815002      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11000702727250
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              40
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311675        0.302712        0.295041        0.290714
+                        0.222603        0.230165        0.243172        0.257657
+                        0.266484
+ ENERGIES [au] =      -24.815004      -24.815002      -24.812931      -24.806160
+                      -24.802236      -24.804653      -24.810183      -24.814273
+                      -24.815002      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11002903403573
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              41
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311464        0.303073        0.295804        0.291681
+                        0.224288        0.231391        0.243552        0.256926
+                        0.264628
+ ENERGIES [au] =      -24.815004      -24.815003      -24.812959      -24.806183
+                      -24.802236      -24.804687      -24.810251      -24.814301
+                      -24.815002      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11021994126028
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              42
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311414        0.303130        0.295943        0.291870
+                        0.224612        0.231619        0.243601        0.256765
+                        0.264260
+ ENERGIES [au] =      -24.815004      -24.815003      -24.812965      -24.806188
+                      -24.802236      -24.804693      -24.810266      -24.814306
+                      -24.815002      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11025909916316
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              43
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.311108        0.303533        0.296854        0.293035
+                        0.226611        0.233052        0.244000        0.255794
+                        0.261974
+ ENERGIES [au] =      -24.815004      -24.815003      -24.812998      -24.806215
+                      -24.802236      -24.804734      -24.810346      -24.814338
+                      -24.815002      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11048254705321
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              44
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.310996        0.303625        0.297115        0.293389
+                        0.227204        0.233469        0.244071        0.255462
+                        0.261276
+ ENERGIES [au] =      -24.815004      -24.815004      -24.813009      -24.806224
+                      -24.802236      -24.804746      -24.810371      -24.814347
+                      -24.815002      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11055206893209
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              45
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.310670        0.303921        0.297863        0.294371
+                        0.228852        0.234626        0.244324        0.254538
+                        0.259306
+ ENERGIES [au] =      -24.815004      -24.815004      -24.813036      -24.806247
+                      -24.802236      -24.804780      -24.810437      -24.814371
+                      -24.815001      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11073400265568
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                              SD
+ STEP NUMBER                   =                                              46
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.310545        0.303999        0.298100        0.294696
+                        0.229387        0.234996        0.244362        0.254204
+                        0.258654
+ ENERGIES [au] =      -24.815004      -24.815004      -24.813046      -24.806255
+                      -24.802236      -24.804791      -24.810459      -24.814379
+                      -24.815001      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11079522287304
+ *******************************************************************************
+
+ *******************************************************************************
+ BAND TYPE                     =                                          CI-NEB
+ BAND TYPE OPTIMIZATION        =                                            DIIS
+ STEP NUMBER                   =                                              47
+ NUMBER OF NEB REPLICA         =                                              10
+ DISTANCES REP =        0.310496        0.304009        0.298153        0.294771
+                        0.229505        0.235070        0.244354        0.254093
+                        0.258495
+ ENERGIES [au] =      -24.815004      -24.815004      -24.813048      -24.806257
+                      -24.802236      -24.804794      -24.810463      -24.814380
+                      -24.815001      -24.815004
+ BAND TOTAL ENERGY [au]        =                             -248.11080802379169
+ *******************************************************************************
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                                DBCSR STATISTICS                             -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ COUNTER                                    TOTAL       BLAS       SMM       ACC
+ flops     4 x     1 x    11              1801448       0.0%    100.0%      0.0%
+ flops     1 x     1 x    11              2702172       0.0%    100.0%      0.0%
+ flops     1 x     4 x    11              3602896       0.0%    100.0%      0.0%
+ flops     4 x     4 x    11              7205792       0.0%    100.0%      0.0%
+ flops     9 x     1 x    11             12159774       0.0%    100.0%      0.0%
+ flops     1 x     9 x    11             12159774       0.0%    100.0%      0.0%
+ flops     4 x     9 x    11             16213032       0.0%    100.0%      0.0%
+ flops     9 x     4 x    11             16213032       0.0%    100.0%      0.0%
+ flops     9 x     9 x    11            109437966       0.0%    100.0%      0.0%
+ flops inhomo. stacks                           0       0.0%      0.0%      0.0%
+ flops total                       181.495886E+06       0.0%    100.0%      0.0%
+ flops max/rank                    181.495886E+06       0.0%    100.0%      0.0%
+ matmuls inhomo. stacks                         0       0.0%      0.0%      0.0%
+ matmuls total                             429891       0.0%    100.0%      0.0%
+ number of processed stacks                184239       0.0%    100.0%      0.0%
+ average stack size                                     0.0       2.3       0.0
+ marketing flops                   281.441760E+06
+ -------------------------------------------------------------------------------
+ # multiplications                          20471
+ max memory usage/rank             107.327488E+06
+ # max total images/rank                        1
+ # max 3D layers                                1
+ # MPI messages exchanged                       0
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                      DBCSR MESSAGE PASSING PERFORMANCE                      -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ ROUTINE             CALLS      AVE VOLUME [Bytes]
+ MP_Bcast               10                     12.
+ MP_Allreduce       167228                    214.
+ MP_Alltoall        409383                   2535.
+ MP_ISend            81884                    120.
+ MP_IRecv            81884                    120.
+ -------------------------------------------------------------------------------
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                                GRID STATISTICS                              -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ LP    KERNEL             BACKEND                              COUNT     PERCENT
+ -------------------------------------------------------------------------------
+
+ MEMORY| Estimated peak process memory [MiB]                                 103
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                         MESSAGE PASSING PERFORMANCE                         -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+
+ ROUTINE             CALLS      AVE VOLUME [Bytes]
+ MP_Group                2
+ MP_Allreduce          275                      8.
+ MP_Sync                 1
+ -------------------------------------------------------------------------------
+
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                           R E F E R E N C E S                               -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ 
+ CP2K version 8.2, the CP2K developers group (2021).
+ CP2K is freely available from https://www.cp2k.org/ .
+
+ Kuehne,Thomas D.; Iannuzzi,Marcella; Del Ben,Mauro;
+ Rybkin,Vladimir V.; Seewald,Patrick; Stein,Frederick; Laino,Teodoro;
+ Khaliullin,Rustam Z.; Schuett,Ole; Schiffmann,Florian; Golze,Dorothea;
+ Wilhelm,Jan; Chulkov,Sergey; Bani-Hashemian,Mohammad Hossein;
+ Weber,Valery; Borstnik,Urban; Taillefumier,Mathieu;
+ Jakobovits,Alice Shoshana; Lazzaro,Alfio; Pabst,Hans; Mueller,Tiziano;
+ Schade,Robert; Guidon,Manuel; Andermatt,Samuel; Holmberg,Nico;
+ Schenter,Gregory K.; Hehn,Anna; Bussy,Augustin; Belleflamme,Fabian;
+ Tabacchi,Gloria; Gloess,Andreas; Lass,Michael; Bethune,Iain;
+ Mundy,Christopher J.; Plessl,Christian; Watkins,Matt;
+ VandeVondele,Joost; Krack,Matthias; Hutter,Juerg. 
+ The Journal of Chemical Physics, 152 (19), (2020). 
+ CP2K: An electronic structure and molecular dynamics software package -
+ Quickstep: Efficient and accurate electronic structure calculations.
+ https://doi.org/10.1063/5.0007045
+
+ Schuett, Ole; Messmer, Peter; Hutter, Juerg; VandeVondele, Joost. 
+ Electronic Structure Calculations on Graphics Processing Units, John
+ Wiley & Sons, Ltd, 173-190 (2016). 
+ GPU-Accelerated Sparse Matrix-Matrix Multiplication for
+ Linear Scaling Density Functional Theory.
+ https://doi.org/10.1002/9781118670712.ch8
+
+ Heinecke, A; Henry, G; Hutchinson, M; Pabst, H. 
+ Proceedings of Intl. Supercomputing Conference, 981-991 (2016). 
+ LIBXSMM: Accelerating Small Matrix Multiplications
+ by Runtime Code Generation.
+ https://doi.org/10.1109/SC.2016.83
+
+ Borstnik, U; VandeVondele, J; Weber, V; Hutter, J. 
+ PARALLEL COMPUTING, 40 (5-6), 47-58 (2014). 
+ Sparse matrix multiplication: The distributed block-compressed sparse
+ row library.
+ https://doi.org/10.1016/j.parco.2014.03.012
+
+ Hutter, J; Iannuzzi, M; Schiffmann, F; VandeVondele, J. 
+ WIREs Comput Mol Sci., 4 (1), 15-25 (2014). 
+ CP2K: atomistic simulations of condensed matter systems.
+ https://doi.org/10.1002/wcms.1159
+
+ Stewart, JJP. 
+ JOURNAL OF MOLECULAR MODELING, 13 (12), 1173-1213 (2007). 
+ Optimization of parameters for semiempirical methods V: Modification of
+ NDDO approximations and application to 70 elements.
+ https://doi.org/10.1007/s00894-007-0233-4
+
+ Kuhne, TD; Krack, M; Mohamed, FR; Parrinello, M. 
+ PHYSICAL REVIEW LETTERS, 98 (6), 066401 (2007). 
+ Efficient and accurate Car-Parrinello-like approach to
+ Born-Oppenheimer molecular dynamics.
+ https://doi.org/10.1103/PhysRevLett.98.066401
+
+ Frigo, M; Johnson, SG. 
+ PROCEEDINGS OF THE IEEE, 93 (2), 216-231 (2005). 
+ The design and implementation of FFTW3.
+ https://doi.org/10.1109/JPROC.2004.840301
+
+ Kolafa, J. 
+ JOURNAL OF COMPUTATIONAL CHEMISTRY, 25 (3), 335-342 (2004). 
+ Time-reversible always stable predictor-corrector method for molecular dynamics of polarizable molecules.
+ https://doi.org/10.1002/jcc.10385
+
+ Henkelman, G; Uberuaga, BP; Jonsson, H. 
+ JOURNAL OF CHEMICAL PHYSICS, 113 (22), 9901-9904 (2000). 
+ A climbing image nudged elastic band method for finding saddle points
+ and minimum energy paths.
+ https://doi.org/10.1063/1.1329672
+
+ Henkelman, G; Jonsson, H. 
+ JOURNAL OF CHEMICAL PHYSICS, 113 (22), 9978-9985 (2000). 
+ Improved tangent estimate in the nudged elastic band method for finding
+ minimum energy paths and saddle points.
+ https://doi.org/10.1063/1.1323224
+
+
+ -------------------------------------------------------------------------------
+ -                                                                             -
+ -                                T I M I N G                                  -
+ -                                                                             -
+ -------------------------------------------------------------------------------
+ SUBROUTINE                       CALLS  ASD         SELF TIME        TOTAL TIME
+                                MAXIMUM       AVERAGE  MAXIMUM  AVERAGE  MAXIMUM
+ CP2K                                 1  1.0    0.006    0.006   59.669   59.669
+ neb                                  1  2.0   59.620   59.620   59.656   59.656
+ -------------------------------------------------------------------------------
+
+ The number of warnings for this run is : 0
+ 
+ -------------------------------------------------------------------------------
+  **** **** ******  **  PROGRAM ENDED AT                 2023-05-24 09:44:35.152
+ ***** ** ***  *** **   PROGRAM RAN ON                               eu-g5-002-1
+ **    ****   ******    PROGRAM RAN BY                                 jbachmann
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 23357
+  **** **  *******  **  PROGRAM STOPPED IN /cluster/home/jbachmann/Molecular-and
+                                           -Materials-Modelling-FS2023/exercise1
+                                           3/NEB
